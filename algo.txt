@@ -1,0 +1,161 @@
+Algorithm to insert an element in a circular queue
+
+Step 1: IF (REAR+1)%MAX = FRONT
+Write " OVERFLOW "
+Goto step 4
+[End OF IF]
+Step 2: IF FRONT = -1 and REAR = -1
+SET FRONT = REAR = 0
+ELSE IF REAR = MAX - 1 and FRONT ! = 0
+SET REAR = 0
+ELSE
+SET REAR = (REAR + 1) % MAX
+[END OF IF]
+Step 3: SET QUEUE[REAR] = VAL
+Step 4: EXIT
+
+Algorithm to delete an element from the circular queue
+
+Step 1: IF FRONT = -1
+Write " UNDERFLOW "
+Goto Step 4
+[END of IF]
+Step 2: SET VAL = QUEUE[FRONT]
+Step 3: IF FRONT = REAR
+SET FRONT = REAR = -1
+ELSE
+IF FRONT = MAX -1
+SET FRONT = 0
+ELSE
+SET FRONT = FRONT + 1
+[END of IF]
+[END OF IF]
+Step 4: EXIT
+
+Dequeue Operation of queue
+
+Step 1 − Check if the queue is empty.
+Step 2 − If the queue is empty, produce underflow error and exit.
+Step 3 − If the queue is not empty, access the data where front is pointing.
+Step 4 − Increment front pointer to point to the next available data element.
+Step 5 − Return success.
+
+Enqueue Operation of queue
+
+Step 1 − Check if the queue is full.
+Step 2 − If the queue is full, produce overflow error and exit.
+Step 3 − If the queue is not full, increment rear pointer to point the next empty space.
+Step 4 − Add data element to the queue location, where the rear is pointing.
+Step 5 − return success.
+
+Push Operation
+
+Step 1 − Checks if the stack is full.
+Step 2 − If the stack is full, produces an error and exit.
+Step 3 − If the stack is not full, increments top to point next empty space.
+Step 4 − Adds data element to the stack location, where top is pointing.
+Step 5 − Returns success.
+
+Pop Operation
+
+Step 1 − Checks if the stack is empty.
+Step 2 − If the stack is empty, produces an error and exit.
+Step 3 − If the stack is not empty, accesses the data element at which top is pointing.
+Step 4 − Decreases the value of top by 1.
+Step 5 − Returns success.
+
+quick sort
+
+QUICKSORT (array A, start, end)     
+{  
+1 if (start < end)     
+2 {  
+3 p = partition(A, start, end)  
+4 QUICKSORT (A, start, p - 1)    
+5 QUICKSORT (A, p + 1, end)    
+6 }   
+}  
+
+PARTITION (array A, start, end)     
+{  
+ 1 pivot ? A[end]     
+ 2 i ? start-1     
+ 3 for j ? start to end -1 {  
+ 4 do if (A[j] < pivot) {    
+ 5 then i ? i + 1     
+ 6 swap A[i] with A[j]   
+ 7  }}   
+ 8 swap A[i+1] with A[end]     
+ 9 return i+1  
+}  
+
+Merge Sort Algorithm
+
+MergeSort(arr[], l, r), where l is the index of the first element & r is the index of the last element.
+If r > l
+1. Find the middle index of the array to divide it in two halves:
+m = (l+r)/2
+2. Call MergeSort for first half:
+mergeSort(array, l, m)
+3. Call mergeSort for second half:
+mergeSort(array, m+1, r)
+4. Recursively, merge the two halves in a sorted manner, so that only one sorted array is left:
+merge(array, l, m, r)
+
+insertion sort algo
+
+Step 1 - If the element is the first element, assume that it is already sorted. Return 1.
+Step2 - Pick the next element, and store it separately in a key.
+Step3 - Now, compare the key with all elements in the sorted array.
+Step 4 - If the element in the sorted array is smaller than the current element, then move to the next element. Else, shift greater elements in the array towards the right.
+Step 5 - Insert the value.
+Step 6 - Repeat until the array is sorted.
+
+bubble sort algo
+
+begin BubbleSort(arr)  
+   for all array elements  
+      if arr[i] > arr[i+1]  
+         swap(arr[i], arr[i+1])  
+      end if  
+   end for     
+   return arr     
+end BubbleSort 
+
+selection sort
+
+Step 1 − Set min to the first location
+Step 2 − Search the minimum element in the array
+Step 3 – swap the first location with the minimum value in the array
+Step 4 – assign the second element as min.
+Step 5 − Repeat the process until we get a sorted array.
+
+heap sort algo 
+
+HeapSort(arr)  
+BuildMaxHeap(arr)  
+for i = length(arr) to 2  
+    swap arr[1] with arr[i]  
+        heap_size[arr] = heap_size[arr] ? 1  
+        MaxHeapify(arr,1)  
+End  
+
+BuildMaxHeap(arr)  
+    heap_size(arr) = length(arr)  
+    for i = length(arr)/2 to 1  
+MaxHeapify(arr,i)  
+End  
+
+MaxHeapify(arr,i)  
+L = left(i)  
+R = right(i)  
+if L ? heap_size[arr] and arr[L] > arr[i]  
+largest = L  
+else  
+largest = i  
+if R ? heap_size[arr] and arr[R] > arr[largest]  
+largest = R  
+if largest != i  
+swap arr[i] with arr[largest]  
+MaxHeapify(arr,largest)  
+End 
