@@ -1,0 +1,42 @@
+BFS ALGO
+
+Step 1: SET STATUS = 1 (ready state) for each node in G
+Step 2: Enqueue the starting node A and set its STATUS = 2 (waiting state)
+Step 3: Repeat Steps 4 and 5 until QUEUE is empty
+Step 4: Dequeue a node N. Process it and set its STATUS = 3 (processed state).
+Step 5: Enqueue all the neighbours of N that are in the ready state (whose STATUS = 1) and set
+their STATUS = 2
+(waiting state)
+[END OF LOOP]
+Step 6: EXIT
+
+DFS ALGO
+
+Step 1: SET STATUS = 1 (ready state) for each node in G
+Step 2: Push the starting node A on the stack and set its STATUS = 2 (waiting state)
+Step 3: Repeat Steps 4 and 5 until STACK is empty
+Step 4: Pop the top node N. Process it and set its STATUS = 3 (processed state)
+Step 5: Push on the stack all the neighbors of N that are in the ready state (whose STATUS = 1) and set their STATUS = 2 (waiting state)
+[END OF LOOP]
+Step 6: EXIT
+
+KRUSKAL'S ALGO
+
+Step 1: Create a forest F in such a way that every vertex of the graph is a separate tree.  
+Step 2: Create a set E that contains all the edges of the graph.  
+Step 3: Repeat Steps 4 and 5 while E is NOT EMPTY and F is not spanning  
+Step 4: Remove an edge from E with minimum weight  
+Step 5: IF the edge obtained in Step 4 connects two different trees, then add it to the forest F   
+(for combining two trees into one tree).  
+ELSE  
+Discard the edge  
+Step 6: END
+
+PRIM'S ALGO
+
+Step 1: Select a starting vertex  
+Step 2: Repeat Steps 3 and 4 until there are fringe vertices  
+Step 3: Select an edge 'e' connecting the tree vertex and fringe vertex that has minimum weight  
+Step 4: Add the selected edge and the vertex to the minimum spanning tree T  
+[END OF LOOP]  
+Step 5: EXIT  
