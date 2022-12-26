@@ -1,0 +1,289 @@
+*Merge Sort Algorithm:
+MergeSort(arr[], l, r), where l is the index of the first element & r is the index of the last element.
+If r > l
+1. Find the middle index of the array to divide it in two halves:
+m = (l+r)/2
+2. Call MergeSort for first half:
+mergeSort(array, l, m)
+3. Call mergeSort for second half:
+mergeSort(array, m+1, r)
+4. Recursively, merge the two halves in a sorted manner, so that only one sorted array is left:
+merge(array, l, m, r)
+
+*merge sort algo:
+
+step 1: start
+
+step 2: declare array and left, right, mid variable
+
+step 3: perform merge function.
+    if left > right
+        return
+    mid= (left+right)/2
+    mergesort(array, left, mid)
+    mergesort(array, mid+1, right)
+    merge(array, left, mid, right)
+
+step 4: Stop
+
+program:
+
+*heap sort:
+
+#include<stdio.h>
+void quicksort(int number[25],int first,int last){
+   int i, j, pivot, temp;
+   if(first<last){
+      pivot=first;
+      i=first;
+      j=last;
+      while(i<j){
+         while(number[i]<=number[pivot]&&i<last)
+         i++;
+         while(number[j]>number[pivot])
+         j--;
+         if(i<j){
+            temp=number[i];
+            number[i]=number[j];
+            number[j]=temp;
+         }
+      }
+      temp=number[pivot];
+      number[pivot]=number[j];
+      number[j]=temp;
+      quicksort(number,first,j-1);
+      quicksort(number,j+1,last);
+   }
+}
+int main(){
+   int i, count, number[25];
+   printf("How many elements are u going to enter?: ");
+   scanf("%d",&count);
+   printf("Enter %d elements: ", count);
+   for(i=0;i<count;i++)
+   scanf("%d",&number[i]);
+   quicksort(number,0,count-1);
+   printf("Order of Sorted elements: ");
+   for(i=0;i<count;i++)
+   printf(" %d",number[i]);
+   return 0;
+}
+*linar queuer( Insertion) :
+
+Step 1 :If REAR = (MAXSIZE –1) : then 
+ Write : “Queue Overflow” and return 
+ [End of If structure] 
+Step 2 : Read NUM to be inserted in Linear Queue. 
+Step 3 : Set REAR := REAR + 1 
+Step 4 : Set QUEUE[REAR] := NUM 
+Step 5 : If FRONT = –1 : then 
+ Set FRONT=0. 
+ [End of If structure] 
+Step 6 : Exit
+
+Function for insertion in a linear queue (using arrays)
+void lqinsert() 
+{ 
+int num; 
+ if(rear==MAXSIZE-1) 
+ { 
+ printf("\nQueue is full (Queue overflow)"); 
+ return; 
+ } 
+ printf("\nEnter the element to be inserted : "); 
+ scanf("%d",&num); 
+ rear++; 
+ queue[rear]=num; 
+ if(front==-1) 
+ front=0; 
+} 
+(2) Algorithm for Deletion from a Linear Queue  
+Step 1 : If FRONT = -1 : then 
+ Write : “Queue Underflow” and return 
+ [End of If structure] 
+Step 2 : Set NUM := QUEUE[FRONT] 
+Step 3 : Write “Deleted item is : ”, NUM 
+Step 4 : Set FRONT := FRONT + 1. 
+ Set FRONT := REAR := -1. 
+ [End of If structure] 
+Step 6 : Exit 
+Step 5 : If FRONT=REAR : then
+Function(Procedure) for Deletion from a Linear Queue
+void lqdelete() 
+{ 
+ if(front == -1) 
+ { 
+ printf("\nQueue is empty (Queue underflow)"); 
+ return; 
+ } 
+ int num; 
+ num=queue[front]; 
+ printf("\nDeleted element is : %d",num); 
+ front++; 
+ front=rear=-1;
+}
+
+(1) Algorithm for Insertion in a Circular Queue
+
+Step 1 : If FRONT = (REAR + 1) % MAXSIZE : then 
+ Write : “Queue Overflow” and return. 
+ [End of If structure] 
+Step 2 : Read NUM to be inserted in Circular Queue. 
+Step 3 : If FRONT= -1 : then 
+ Set FRONT = REAR =0. 
+ Else 
+ Set REAR=(REAR + 1) % MAXSIZE. 
+ [End of If Else structure] 
+Step 4 : Set CQUEUE[REAR]=NUM; 
+Step 5 : Exit 
+Function(Procedure) for Insertion in a Circular Queue using arrays:
+void cqinsert() 
+{ 
+ int num; 
+ if(front==(rear+1)%MAXSIZE) 
+ { 
+ printf("\nQueue is Full(Queue overflow)"); 
+ return; 
+ } 
+ printf("\nEnter the element to be inserted in circular queue : "); 
+ scanf("%d",&num); 
+ if(front==-1) 
+ front=rear=0; 
+ else 
+ rear=(rear+1) % MAXSIZE; 
+ cqueue[rear]=num; 
+} 
+(2) Algorithm for Deletion from a Linear Queue : 
+
+Step 1 : If FRONT = - 1 : then 
+ Write : “Queue Underflow” and return. 
+ [End of If Structure] 
+Step 2 : Set NUM = CQUEUE[FRONT]. 
+Step 3 : Write ‘Deleted element from circular queue is : ",NUM. 
+Step 4 : If FRONT = REAR : then 
+ Set FRONT = REAR = -1; 
+ Else 
+ Set FRONT = (FRONT + 1) % MAXSIZE. 
+Step 5 : Exit
+Function(Procedure) to Delete an element from a Queue
+void cqdelete() 
+{ 
+ int num; 
+ if(front==-1) 
+ { 
+ printf("\nQueue is Empty (Queue underflow)"); 
+ return; 
+ } 
+ num=cqueue[front]; 
+ printf("\nDeleted element from circular queue is : %d",num); 
+ if(front==rear) 
+ front=rear=-1; 
+ else 
+ front=(front+1)%MAXSIZE; 
+} 
+
+INSERT_PRIORITY(HEAD, DATA, PRIORITY):
+Step 1: Create new node with DATA and PRIORITY
+Step 2: Check if HEAD has lower priority. If true follow Steps 3-4 and end. Else goto Step 5.
+Step 3: NEW -> NEXT = HEAD
+Step 4: HEAD = NEW
+Step 5: Set TEMP to head of the list
+Step 6: While TEMP -> NEXT != NULL and TEMP -> NEXT -> PRIORITY > PRIORITY
+Step 7: TEMP = TEMP -> NEXT
+[END OF LOOP]
+Step 8: NEW -> NEXT = TEMP -> NEXT
+Step 9: TEMP -> NEXT = NEW
+Step 10: End
+
+DELETE_PRIORITY(HEAD):
+Step 1: Set the head of the list to the next node in the list. HEAD = HEAD -> NEXT.
+Step 2: Free the node at the head of the list
+Step 3: End
+
+*BFS algo:
+Step 1: SET STATUS = 1 (ready state) for each node in G
+
+Step 2: Enqueue the starting node A and set its STATUS = 2 (waiting state)
+
+Step 3: Repeat Steps 4 and 5 until QUEUE is empty
+
+Step 4: Dequeue a node N. Process it and set its STATUS = 3 (processed state).
+
+Step 5: Enqueue all the neighbours of N that are in the ready state (whose STATUS = 1) and set
+
+their STATUS = 2
+
+(waiting state)
+
+[END OF LOOP]
+
+Step 6: EXIT
+
+*DFS algo:
+Step 1: SET STATUS = 1 (ready state) for each node in G
+
+Step 2: Push the starting node A on the stack and set its STATUS = 2 (waiting state)
+
+Step 3: Repeat Steps 4 and 5 until STACK is empty
+
+Step 4: Pop the top node N. Process it and set its STATUS = 3 (processed state)
+
+Step 5: Push on the stack all the neighbors of N that are in the ready state (whose STATUS = 1) and set their STATUS = 2 (waiting state)
+
+[END OF LOOP]
+
+Step 6: EXIT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
